@@ -30,23 +30,6 @@ public class ScrollActivity10 extends AppCompatActivity {
 
     }
 
-    public void Earth(View view) {
-
-        Intent intent = new Intent(ScrollActivity10.this,ScrollActivity11.class);
-        startActivity(intent);
-    }
-
-    public void star(View view) {
-
-        Intent intent = new Intent(ScrollActivity10.this,ScrollActivity12.class);
-        startActivity(intent);
-    }
-
-    public void heart(View view) {
-        Intent intent = new Intent(ScrollActivity10.this,ScrollActivity13.class);
-        startActivity(intent);
-    }
-
     public void ImageVisible(View view) {
         imageV.setVisibility(View.INVISIBLE);
         cardView.setVisibility(View.INVISIBLE);
