@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class Photo_Activity extends AppCompatActivity {
 
@@ -19,6 +20,7 @@ public class Photo_Activity extends AppCompatActivity {
     ImageView imageV2;
     ImageView imageV3;
     ImageView imageV4;
+    int x=0;
 
 
     private static final int PICK_IMAGE = 100;
@@ -42,12 +44,6 @@ public class Photo_Activity extends AppCompatActivity {
 
     }
 
-
-    public void Gallery(View view) {
-        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(gallery, PICK_IMAGE);
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -68,9 +64,14 @@ public class Photo_Activity extends AppCompatActivity {
     }
 
     public void Next(View view) {
-        Intent intent = new Intent(Photo_Activity.this,Introduce_Activity.class);
-        startActivity(intent);
-        finish();
+        if(x>=2) {
+            Intent intent = new Intent(Photo_Activity.this, Introduce_Activity.class);
+            startActivity(intent);
+            finish();
+        }
+        else{
+            Toast.makeText(Photo_Activity.this, "Please select atleast 2 images", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -86,21 +87,29 @@ public class Photo_Activity extends AppCompatActivity {
         imageV4.setVisibility(View.INVISIBLE);
     }
 
+    public void Gallery(View view) {
+        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, PICK_IMAGE);
+        x++;
+    }
 
     public void Gallery1(View view) {
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery, PICK_IMAGE);
+        x++;
     }
 
 
     public void Gallery3(View view) {
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery, PICK_IMAGE);
+        x++;
     }
 
     public void Gallery4(View view) {
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery, PICK_IMAGE);
+        x++;
     }
 }
 
